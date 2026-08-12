@@ -49,9 +49,12 @@ both throws off the harness's camera framing and smears the pixel art.
 | `11_flip_h.png` | Diagram: one walk frame, `flip_h` false vs true |
 | `11a/b_*.png` | The two raw panels behind that diagram |
 
-## Editor shots — capture by hand
+## Editor shots — captured by hand
 
-These five need the Godot editor UI. Numbers below match the article sections.
+These five need the Godot editor UI, so they're captured manually rather than
+generated. Each is stored twice: `*_clean.png` is the untouched capture, and
+`*.png` is the annotated version the article links. Numbers match the article
+sections. Re-annotate with the commands under [Annotating](#annotating).
 
 ### `02_player_scene.png` — section 2
 
@@ -106,9 +109,25 @@ Readers copy this pattern straight from the player.
 
 ## Annotating
 
-```bash
-python tools/annotate.py docs/screenshots/02_player_scene.png --box 40,120,360,190 --label 40,120,"Scene tree"
-```
-
 `--box x,y,w,h`, `--arrow x1,y1,x2,y2` (points at x2,y2), `--label x,y,text`.
-Writes `*_annotated.png` beside the original, so the clean capture survives.
+Coordinates are in image pixels. Always annotate *from* the `_clean` master and
+write to the article filename, so the clean capture is never overwritten and the
+callouts can be redone at any time.
+
+The exact commands behind the current set:
+
+```bash
+python tools/annotate.py docs/screenshots/02_player_scene_clean.png --box 6,140,428,116 --out docs/screenshots/02_player_scene.png
+```
+```bash
+python tools/annotate.py docs/screenshots/03_spriteframes_clean.png --box 238,670,342,82 --box 588,643,714,265 --box 456,605,130,32 --out docs/screenshots/03_spriteframes.png
+```
+```bash
+python tools/annotate.py docs/screenshots/05_collision_clean.png --box 122,448,205,58 --box 632,250,210,70 --out docs/screenshots/05_collision.png
+```
+```bash
+python tools/annotate.py docs/screenshots/06_input_map_clean.png --box 18,182,1096,292 --out docs/screenshots/06_input_map.png
+```
+```bash
+python tools/annotate.py docs/screenshots/08_animated_tree_clean.png --box 586,643,580,140 --box 412,606,28,30 --out docs/screenshots/08_animated_tree.png
+```

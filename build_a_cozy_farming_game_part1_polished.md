@@ -147,12 +147,15 @@ Now that the player is visible, add a `RectangleShape2D`.
 
 Keep the collision around the feet instead of the whole body.
 
-Suggested starting size:
+The values used here are:
 
--   Width: **10--14**
--   Height: **6--8**
+-   Size: **9 x 2**
+-   Position: **(0.5, 6)**
 
-Adjust visually.
+That height of `2` looks alarmingly thin in the Inspector, but it is doing
+exactly what we want: it is a *footprint*, not a body. Anywhere from `2` to `8`
+feels fine — go lower for tighter, more precise movement around scenery, higher
+if you want the player stopped further from it. Adjust visually.
 
 ![Collision box around the feet only](docs/screenshots/05_collision.png)
 
