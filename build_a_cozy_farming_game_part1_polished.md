@@ -58,14 +58,23 @@ several chapters later.
 
 # 1. Understand the Character
 
-Explain:
+Before building anything, it helps to know how this asset pack expects a
+character to be put together.
 
--   Base and hair are separate `AnimatedSprite2D` nodes.
--   This asset pack uses a single side-facing walk animation.
--   Left is achieved with `flip_h`.
--   Up and down reuse the same walk animation.
--   Additional animations (tools, fishing, chopping, etc.) will be used
-    later.
+The character is **modular**. The body and the hair are two separate
+`AnimatedSprite2D` nodes stacked on top of each other, not one combined sprite.
+That's what lets you change hairstyle later without redrawing anything — and
+it's why our movement script has to drive *both* sprites in lockstep.
+
+The animations are more economical than you might expect:
+
+-   There is a single **side-facing** walk animation.
+-   Walking **left** reuses it with `flip_h` turned on.
+-   Walking **up** and **down** reuse it too — no separate animations.
+
+So four directions of movement come from one animation plus a boolean. The pack
+also ships tool, fishing and chopping animations; we'll reach for those in
+later parts.
 
 ------------------------------------------------------------------------
 
@@ -112,6 +121,12 @@ Configure both:
 
 > The number at the end of each filename tells you the frame count.
 > `strip9` means 9 frames, `strip8` means 8.
+
+> **💡 Tip**
+>
+> A new SpriteFrames resource always starts with an empty animation called
+> `default`. You'll see it listed alongside `idle` and `walk` — leave it or
+> delete it, it makes no difference as long as the script never asks for it.
 
 ![The SpriteFrames editor with idle and walk](docs/screenshots/03_spriteframes.png)
 
@@ -192,22 +207,66 @@ All four actions exist in the Input Map.
 
 # 7. Add Movement & Animation
 
-Your movement script should:
+Attach a script to the `Player` node:
 
--   Use `Input.get_vector()`
--   Move the `CharacterBody2D`
--   Call `play_character_animation("idle")` inside `_ready()`
--   Play `walk` while moving
--   Play `idle` when stopped
--   Flip both body and hair when moving left
+``` gdscript
+extends CharacterBody2D
 
-Explain **why** `_ready()` is important:
+@export var speed := 100.0
 
-> `AnimatedSprite2D` does not begin animating automatically. Until
-> `play()` is called, it simply displays its current frame.
+@onready var base_sprite = $BaseSprite
+@onready var hair_sprite = $HairSprite
+
+func _ready():
+	play_character_animation("idle")
+
+func _physics_process(delta: float):
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+
+	velocity = direction * speed
+	move_and_slide()
+
+	update_animation(direction)
+
+func play_character_animation(name: StringName):
+	if base_sprite.animation != name:
+		base_sprite.play(name)
+
+	if hair_sprite.animation != name:
+		hair_sprite.play(name)
+
+func update_animation(direction):
+	if direction != Vector2.ZERO:
+		if direction.x < 0:
+			base_sprite.flip_h = true
+			hair_sprite.flip_h = true
+		elif direction.x > 0:
+			base_sprite.flip_h = false
+			hair_sprite.flip_h = false
+
+		play_character_animation("walk")
+	else:
+		play_character_animation("idle")
+```
+
+Three things are worth pulling out of that.
+
+**`Input.get_vector()` does the hard part.** It reads all four actions and hands
+back a direction vector that's already normalised, so diagonal movement isn't
+faster than straight movement — a bug you'd otherwise have to find and fix.
+
+**`play_character_animation()` drives both sprites.** It's the one place that
+knows the character is made of two layers. The `if` guards matter: calling
+`play()` every frame would restart the animation every frame, and the character
+would freeze on frame 0.
+
+**`_ready()` is what starts the idle.** `AnimatedSprite2D` does not begin
+animating on its own — until `play()` is called it just displays whichever frame
+it's currently on.
 
 There is no separate "walk left" animation. Left is the *same* walk animation
-with `flip_h` turned on for both sprites:
+with `flip_h` turned on for both sprites, which is what `update_animation()`
+is doing:
 
 ![The same walk frame with flip_h false and true](docs/screenshots/11_flip_h.png)
 
@@ -227,11 +286,18 @@ The player is already idling before you press any keys.
 
 Create:
 
-    World
-    ├── Decorations
-    └── Player
+    World (Node2D)
+    ├── Grass         (Node2D)
+    ├── Decorations   (Node2D)
+    ├── Crops         (Node2D)
+    └── Player        (instance of player.tscn)
 
-Use a simple green background for now.
+`Grass`, `Decorations` and `Crops` are plain `Node2D`s used purely as folders.
+They'll stay empty-ish for now — grouping things from the start means Part 2 has
+somewhere obvious to put the tilemap without a reshuffle.
+
+Use a simple green background for now. The quickest way is
+**Project Settings > Rendering > Environment > Default Clear Color**.
 
 Add one or two animated trees (or mushrooms) using `AnimatedSprite2D`. The
 setup is identical to the player's — a SpriteFrames resource with the strip
@@ -241,8 +307,12 @@ sliced into frames:
 
 Enable looping and either:
 
--   set **Autoplay** to `idle`, or
--   call `play("idle")` inside `_ready()`.
+-   turn on **Autoplay on Load** (the ▶ button in the SpriteFrames panel), or
+-   call `play()` on it inside `_ready()`.
+
+Autoplay is the easier option here, and it's why the decorations animate in the
+editor as well as at runtime. Note the tree's animation is called `default` —
+these decorations only have one animation, so there's no reason to rename it.
 
 Once those work, decorate the scene with anything else from the asset
 pack that you like:
