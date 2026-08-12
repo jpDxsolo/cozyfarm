@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://dm1alywplsuee"]
+
+[ext_resource type="Texture2D" uid="uid://n3j171sckahx" path="res://art/Elements/Plants/spr_deco_tree_02_strip4.png" id="1_k0juu"]
+[ext_resource type="PackedScene" uid="uid://d24rtdqf1mb0b" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://blmv0y3voaews" path="res://art/Elements/Plants/spr_deco_tree_01_strip4.png" id="2_71j4m"]
+[ext_resource type="Texture2D" uid="uid://clkscinsqkv1h" path="res://art/Elements/Plants/spr_deco_mushroom_red_01_strip4.png" id="3_qfnet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3hyu"]
+atlas = ExtResource("2_71j4m")
+region = Rect2(0, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5onr"]
+atlas = ExtResource("2_71j4m")
+region = Rect2(32, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhx03"]
+atlas = ExtResource("2_71j4m")
+region = Rect2(64, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8fc1"]
+atlas = ExtResource("2_71j4m")
+region = Rect2(96, 0, 32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32gta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3hyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5onr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhx03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8fc1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo05s"]
+atlas = ExtResource("3_qfnet")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dss4m"]
+atlas = ExtResource("3_qfnet")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t5mc"]
+atlas = ExtResource("3_qfnet")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lakw3"]
+atlas = ExtResource("3_qfnet")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnkty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo05s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dss4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t5mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lakw3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
+atlas = ExtResource("1_k0juu")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mrxx"]
+atlas = ExtResource("1_k0juu")
+region = Rect2(28, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r4gi"]
+atlas = ExtResource("1_k0juu")
+region = Rect2(56, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7kh3"]
+atlas = ExtResource("1_k0juu")
+region = Rect2(84, 0, 28, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqfgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7141")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mrxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r4gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7kh3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="world" type="Node2D" unique_id=728624825]
+
+[node name="Grass" type="Node2D" parent="." unique_id=1579511435]
+
+[node name="Decorations" type="Node2D" parent="." unique_id=1743157545]
+
+[node name="Tree06" type="AnimatedSprite2D" parent="Decorations" unique_id=483464663]
+position = Vector2(-80, 57)
+sprite_frames = SubResource("SpriteFrames_32gta")
+autoplay = "default"
+frame = 1
+frame_progress = 0.58343005
+
+[node name="Mushroom4" type="AnimatedSprite2D" parent="Decorations" unique_id=1691017872]
+position = Vector2(-40, 35)
+sprite_frames = SubResource("SpriteFrames_mnkty")
+autoplay = "default"
+
+[node name="Mushroom3" type="AnimatedSprite2D" parent="Decorations" unique_id=849879710]
+position = Vector2(-90, -9)
+sprite_frames = SubResource("SpriteFrames_mnkty")
+autoplay = "default"
+
+[node name="Mushroom2" type="AnimatedSprite2D" parent="Decorations" unique_id=1530372220]
+position = Vector2(-50, -9)
+sprite_frames = SubResource("SpriteFrames_mnkty")
+autoplay = "default"
+
+[node name="Tree05" type="AnimatedSprite2D" parent="Decorations" unique_id=104404888]
+position = Vector2(36, 58)
+sprite_frames = SubResource("SpriteFrames_kqfgo")
+autoplay = "default"
+
+[node name="Tree04" type="AnimatedSprite2D" parent="Decorations" unique_id=1829609427]
+position = Vector2(12, -61)
+sprite_frames = SubResource("SpriteFrames_32gta")
+autoplay = "default"
+frame = 1
+frame_progress = 0.58343005
+
+[node name="Tree03" type="AnimatedSprite2D" parent="Decorations" unique_id=1735133199]
+position = Vector2(121, 41)
+sprite_frames = SubResource("SpriteFrames_kqfgo")
+autoplay = "default"
+
+[node name="Tree01" type="AnimatedSprite2D" parent="Decorations" unique_id=1952983390]
+position = Vector2(-115, -53)
+sprite_frames = SubResource("SpriteFrames_32gta")
+autoplay = "default"
+frame = 1
+frame_progress = 0.58343005
+
+[node name="Tree02" type="AnimatedSprite2D" parent="Decorations" unique_id=2082837594]
+position = Vector2(59, -32)
+sprite_frames = SubResource("SpriteFrames_kqfgo")
+autoplay = "default"
+
+[node name="Mushroom" type="AnimatedSprite2D" parent="Decorations" unique_id=1448152152]
+position = Vector2(-40, 0)
+sprite_frames = SubResource("SpriteFrames_mnkty")
+autoplay = "default"
+
+[node name="Crops" type="Node2D" parent="." unique_id=1253559115]
+
+[node name="Player" parent="." unique_id=1060674621 instance=ExtResource("1_nnsk1")]
+position = Vector2(0, 1)

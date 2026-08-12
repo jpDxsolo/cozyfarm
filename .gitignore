@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Third-party art assets (Sunnyside World pack) — not redistributable.
+# See README.md for how to add your own copy.
+/art/
+
+# Editor / OS cruft
+.DS_Store
+Thumbs.db
+.claude/settings.local.json
