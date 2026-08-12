@@ -6,9 +6,7 @@
 > character, a following camera, and a small farm scene that already
 > feels like the beginning of a cozy game.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/01_hero.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/01_hero.png" alt="The finished Part 1 prototype" width="1152" loading="lazy">
-</a>
+[![The finished Part 1 prototype](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/01_hero_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/01_hero.png)
 
 ------------------------------------------------------------------------
 
@@ -90,9 +88,7 @@ later parts.
 
 Leave the collision shape empty for now.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/02_player_scene.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/02_player_scene.png" alt="The Player scene tree" width="220" loading="lazy">
-</a>
+[![The Player scene tree](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/02_player_scene_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/02_player_scene.png)
 
 ### ✅ Checkpoint
 
@@ -132,9 +128,7 @@ Configure both:
 > `default`. You'll see it listed alongside `idle` and `walk`. Leaving it or
 > deleting it makes no difference, as long as the script never asks for it.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/03_spriteframes.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/03_spriteframes.png" alt="The SpriteFrames editor with idle and walk" width="960" loading="lazy">
-</a>
+[![The SpriteFrames editor with idle and walk](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/03_spriteframes_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/03_spriteframes.png)
 
 ### ✅ Checkpoint
 
@@ -154,9 +148,7 @@ The body carries the character; the hair is a separate sprite drawn on top of
 it. Because both play the same animation names in lockstep, you can swap
 hairstyles later without touching the movement code at all.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/04_character_layers.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/04_character_layers.png" alt="BaseSprite plus HairSprite equals the finished character" width="1186" loading="lazy">
-</a>
+[![BaseSprite plus HairSprite equals the finished character](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/04_character_layers_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/04_character_layers.png)
 
 ### ✅ Checkpoint
 
@@ -180,9 +172,7 @@ exactly what we want: it is a *footprint*, not a body. Anywhere from `2` to `8`
 feels fine, so go lower for tighter, more precise movement around scenery, higher
 if you want the player stopped further from it. Adjust visually.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/05_collision.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/05_collision.png" alt="Collision box around the feet only" width="425" loading="lazy">
-</a>
+[![Collision box around the feet only](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/05_collision_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/05_collision.png)
 
 > **📌 Why this matters**
 >
@@ -207,9 +197,7 @@ Create:
 
 Bind WASD and the arrow keys.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/06_input_map.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/06_input_map.png" alt="The four movement actions in the Input Map" width="601" loading="lazy">
-</a>
+[![The four movement actions in the Input Map](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/06_input_map_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/06_input_map.png)
 
 ### ✅ Checkpoint
 
@@ -280,9 +268,7 @@ There is no separate "walk left" animation. Left is the *same* walk animation
 with `flip_h` turned on for both sprites, which is what `update_animation()`
 is doing:
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/11_flip_h.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/11_flip_h.png" alt="The same walk frame with flip_h false and true" width="800" loading="lazy">
-</a>
+[![The same walk frame with flip_h false and true](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/11_flip_h_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/11_flip_h.png)
 
 > **⚠️ Common mistake**
 >
@@ -317,9 +303,7 @@ Add one or two animated trees (or mushrooms) using `AnimatedSprite2D`. The
 setup is identical to the player's, a SpriteFrames resource with the strip
 sliced into frames:
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/08_animated_tree.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/08_animated_tree.png" alt="An animated tree's SpriteFrames" width="960" loading="lazy">
-</a>
+[![An animated tree's SpriteFrames](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/08_animated_tree_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/08_animated_tree.png)
 
 Enable looping and either:
 
@@ -343,9 +327,7 @@ pack that you like:
 Don't spend too much time here---this scene is temporary and will be
 replaced with a proper TileMap in Part 2.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/09_tiny_farm.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/09_tiny_farm.png" alt="The decorated test area" width="1152" loading="lazy">
-</a>
+[![The decorated test area](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/09_tiny_farm_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/09_tiny_farm.png)
 
 > **📌 Why this matters**
 >
@@ -375,15 +357,11 @@ Adjust until it feels comfortable.
 
 At zoom `1`, the character is lost on screen:
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07a_camera_zoom_before.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07a_camera_zoom_before.png" alt="Camera2D at zoom 1" width="1152" loading="lazy">
-</a>
+[![Camera2D at zoom 1](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07a_camera_zoom_before_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07a_camera_zoom_before.png)
 
 At zoom `4`, cozy:
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07b_camera_zoom_after.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07b_camera_zoom_after.png" alt="Camera2D at zoom 4" width="1152" loading="lazy">
-</a>
+[![Camera2D at zoom 4](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07b_camera_zoom_after_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/07b_camera_zoom_after.png)
 
 ### ✅ Checkpoint
 
@@ -405,9 +383,7 @@ Before moving on to Part 2:
 -   [x] Decorations animate automatically.
 -   [x] The prototype feels like a tiny game, not just a tech demo.
 
-<a href="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/10_final_game.png" target="_blank" rel="noopener">
-  <img src="https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/10_final_game.png" alt="The finished Part 1 prototype" width="1152" loading="lazy">
-</a>
+[![The finished Part 1 prototype](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/10_final_game_half.png)](https://inkwell-uploads-prod.s3.us-east-1.amazonaws.com/uploads/godot/cozyfarm/10_final_game.png)
 
 ------------------------------------------------------------------------
 

@@ -110,20 +110,37 @@ Readers copy this pattern straight from the player.
 ## Blog export
 
 The article in the repo root uses relative image paths so GitHub renders it.
-To produce the copy for the blog:
+To produce the copy for the blog, build the thumbnails first:
+
+```bash
+python tools/make_thumbs.py
+```
+
+then:
 
 ```bash
 python tools/blog_export.py
 ```
 
 That writes `docs/part1-blog.md` with the paths pointed at the S3 bucket and
-every image wrapped as a clickable half-size thumbnail.
+every image shown as a half-size thumbnail linking to the full-size original.
 
-Widths are half each image's real pixel width, not `width="50%"`. A percentage
-is relative to the container, so it would stretch the small 440px scene-tree
-capture *up* to fill half a wide column and make it blurry. A pixel width never
-upscales, and a theme's `img { max-width: 100% }` still lets it shrink on narrow
-screens.
+The blog's renderer strips raw HTML, so `<a><img width=...>` is not available
+and the output is plain `[![alt](thumb)](full)`. Markdown has no width syntax,
+which is why the thumbnail must be a physically smaller file rather than a
+scaled-down full-size one.
+
+`make_thumbs.py` halves three different ways, because one method does not suit
+all of them:
+
+| Images | Method | Why |
+| --- | --- | --- |
+| Game renders | NEAREST | They're an x2 upscale of a native capture, so every 2x2 block is uniform and halving is an exact, lossless inverse |
+| Diagrams | rebuilt at half scale | Resampling would soften the pixel-art panels; re-rendering keeps them crisp and the labels sharp |
+| Editor captures | LANCZOS | Real UI screenshots, so normal photographic resampling is correct |
+
+Upload both sets to the bucket: the 12 full-size images and the 12
+`*_half.png` thumbnails from `docs/screenshots/half/`.
 
 ## Annotating
 
