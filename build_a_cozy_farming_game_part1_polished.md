@@ -125,8 +125,10 @@ Configure both:
 > **💡 Tip**
 >
 > A new SpriteFrames resource always starts with an empty animation called
-> `default`. You'll see it listed alongside `idle` and `walk`. Leaving it or
-> deleting it makes no difference, as long as the script never asks for it.
+> `default`, and you'll see it listed alongside `idle` and `walk`. Keep it, and
+> leave **Animation** in the Inspector set to `default` rather than picking
+> `idle` there. Section 7 explains why that one detail decides whether your
+> character animates on load.
 
 ![The SpriteFrames editor with idle and walk](docs/screenshots/03_spriteframes.png)
 
@@ -272,9 +274,16 @@ is doing:
 
 > **⚠️ Common mistake**
 >
-> Player not animating? Check that `_ready()` calls
-> `play_character_animation("idle")`. Setting the animation in the Inspector
-> only picks which one is *selected*, and it doesn't start playback.
+> Character stuck on a single frame until you press a key? Look at the
+> **Animation** property on `BaseSprite` in the Inspector. If you set it to
+> `idle` there, then on the very first call `base_sprite.animation` is *already*
+> `"idle"`, the `!=` guard is false, and `play()` never runs. Nothing animates.
+> The moment you walk, `"idle" != "walk"` finally passes the guard and it springs
+> to life, which makes this a confusing one to diagnose.
+>
+> Leave the selected animation as `default` and let the script decide what
+> plays. Setting it in the Inspector only picks which animation is *selected*,
+> it does not start playback.
 
 ### ✅ Checkpoint
 

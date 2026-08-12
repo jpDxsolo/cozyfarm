@@ -288,12 +288,10 @@ script = ExtResource("1_qlg0r")
 
 [node name="BaseSprite" type="AnimatedSprite2D" parent="." unique_id=725222130]
 sprite_frames = SubResource("SpriteFrames_mnkty")
-animation = &"idle"
 
 [node name="HairSprite" type="AnimatedSprite2D" parent="." unique_id=1940449887]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_eao12")
-animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98753074]
 position = Vector2(0.5, 6)
