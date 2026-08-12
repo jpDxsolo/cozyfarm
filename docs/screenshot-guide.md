@@ -107,6 +107,24 @@ Open `scenes/world.tscn`, select `Decorations/Tree01`. Show the SpriteFrames
 editor with its **4** frames, plus the Inspector's **Autoplay on Load** enabled.
 Readers copy this pattern straight from the player.
 
+## Blog export
+
+The article in the repo root uses relative image paths so GitHub renders it.
+To produce the copy for the blog:
+
+```bash
+python tools/blog_export.py
+```
+
+That writes `docs/part1-blog.md` with the paths pointed at the S3 bucket and
+every image wrapped as a clickable half-size thumbnail.
+
+Widths are half each image's real pixel width, not `width="50%"`. A percentage
+is relative to the container, so it would stretch the small 440px scene-tree
+capture *up* to fill half a wide column and make it blurry. A pixel width never
+upscales, and a theme's `img { max-width: 100% }` still lets it shrink on narrow
+screens.
+
 ## Annotating
 
 `--box x,y,w,h`, `--arrow x1,y1,x2,y2` (points at x2,y2), `--label x,y,text`.
