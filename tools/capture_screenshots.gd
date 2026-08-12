@@ -140,6 +140,14 @@ func capture_layers() -> void:
 	cam.position = Vector2(0, -2)
 	cam.zoom = Vector2(22, 22)
 
+	# Pin to one idle frame, otherwise the three panels are grabbed at whatever
+	# point the animation happens to be at and don't line up between runs.
+	player.set_physics_process(false)
+	player.play_character_animation("idle")
+	for s in [base_sprite, hair_sprite]:
+		s.pause()
+		s.frame = 0
+
 	base_sprite.visible = true
 	hair_sprite.visible = false
 	await settle(6)
@@ -160,7 +168,7 @@ func capture_layers() -> void:
 	cam.position = Vector2.ZERO
 
 
-## Same walk animation, flipped — the flip_h diagram.
+## Same walk animation, flipped, for the flip_h diagram.
 func capture_flip() -> void:
 	world.get_node("Decorations").visible = false
 	world.get_node("Crops").visible = false
@@ -170,10 +178,15 @@ func capture_flip() -> void:
 	cam.position = Vector2(0, -2)
 	cam.zoom = Vector2(22, 22)
 
+	# The player's own _physics_process sees no input and calls
+	# play_character_animation("idle") every frame, which would un-pause the
+	# sprites and switch them off "walk". Stop it driving them first.
+	player.set_physics_process(false)
+
 	player.play_character_animation("walk")
 
-	# Freeze on one identical frame so the pair differs ONLY by flip_h --
-	# that is the entire point of the diagram.
+	# Freeze on one identical frame so the pair differs ONLY by flip_h,
+	# which is the entire point of the diagram.
 	for s in [base_sprite, hair_sprite]:
 		s.pause()
 		s.frame = 2

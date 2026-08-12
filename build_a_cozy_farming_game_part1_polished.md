@@ -63,14 +63,14 @@ character to be put together.
 
 The character is **modular**. The body and the hair are two separate
 `AnimatedSprite2D` nodes stacked on top of each other, not one combined sprite.
-That's what lets you change hairstyle later without redrawing anything — and
+That's what lets you change hairstyle later without redrawing anything, and
 it's why our movement script has to drive *both* sprites in lockstep.
 
 The animations are more economical than you might expect:
 
 -   There is a single **side-facing** walk animation.
 -   Walking **left** reuses it with `flip_h` turned on.
--   Walking **up** and **down** reuse it too — no separate animations.
+-   Walking **up** and **down** reuse it too, with no separate animations.
 
 So four directions of movement come from one animation plus a boolean. The pack
 also ships tool, fishing and chopping animations; we'll reach for those in
@@ -125,8 +125,8 @@ Configure both:
 > **💡 Tip**
 >
 > A new SpriteFrames resource always starts with an empty animation called
-> `default`. You'll see it listed alongside `idle` and `walk` — leave it or
-> delete it, it makes no difference as long as the script never asks for it.
+> `default`. You'll see it listed alongside `idle` and `walk`. Leaving it or
+> deleting it makes no difference, as long as the script never asks for it.
 
 ![The SpriteFrames editor with idle and walk](docs/screenshots/03_spriteframes.png)
 
@@ -169,7 +169,7 @@ The values used here are:
 
 That height of `2` looks alarmingly thin in the Inspector, but it is doing
 exactly what we want: it is a *footprint*, not a body. Anywhere from `2` to `8`
-feels fine — go lower for tighter, more precise movement around scenery, higher
+feels fine, so go lower for tighter, more precise movement around scenery, higher
 if you want the player stopped further from it. Adjust visually.
 
 ![Collision box around the feet only](docs/screenshots/05_collision.png)
@@ -253,7 +253,7 @@ Three things are worth pulling out of that.
 
 **`Input.get_vector()` does the hard part.** It reads all four actions and hands
 back a direction vector that's already normalised, so diagonal movement isn't
-faster than straight movement — a bug you'd otherwise have to find and fix.
+faster than straight movement, a bug you'd otherwise have to find and fix.
 
 **`play_character_animation()` drives both sprites.** It's the one place that
 knows the character is made of two layers. The `if` guards matter: calling
@@ -261,7 +261,7 @@ knows the character is made of two layers. The `if` guards matter: calling
 would freeze on frame 0.
 
 **`_ready()` is what starts the idle.** `AnimatedSprite2D` does not begin
-animating on its own — until `play()` is called it just displays whichever frame
+animating on its own, and until `play()` is called it just displays whichever frame
 it's currently on.
 
 There is no separate "walk left" animation. Left is the *same* walk animation
@@ -274,7 +274,7 @@ is doing:
 >
 > Player not animating? Check that `_ready()` calls
 > `play_character_animation("idle")`. Setting the animation in the Inspector
-> only picks which one is *selected* — it doesn't start playback.
+> only picks which one is *selected*, and it doesn't start playback.
 
 ### ✅ Checkpoint
 
@@ -293,14 +293,14 @@ Create:
     └── Player        (instance of player.tscn)
 
 `Grass`, `Decorations` and `Crops` are plain `Node2D`s used purely as folders.
-They'll stay empty-ish for now — grouping things from the start means Part 2 has
+They'll stay empty-ish for now, but grouping things from the start means Part 2 has
 somewhere obvious to put the tilemap without a reshuffle.
 
 Use a simple green background for now. The quickest way is
 **Project Settings > Rendering > Environment > Default Clear Color**.
 
 Add one or two animated trees (or mushrooms) using `AnimatedSprite2D`. The
-setup is identical to the player's — a SpriteFrames resource with the strip
+setup is identical to the player's, a SpriteFrames resource with the strip
 sliced into frames:
 
 ![An animated tree's SpriteFrames](docs/screenshots/08_animated_tree.png)
@@ -311,8 +311,8 @@ Enable looping and either:
 -   call `play()` on it inside `_ready()`.
 
 Autoplay is the easier option here, and it's why the decorations animate in the
-editor as well as at runtime. Note the tree's animation is called `default` —
-these decorations only have one animation, so there's no reason to rename it.
+editor as well as at runtime. Note the tree's animation is called `default`.
+These decorations only have one animation, so there's no reason to rename it.
 
 Once those work, decorate the scene with anything else from the asset
 pack that you like:
@@ -332,7 +332,7 @@ replaced with a proper TileMap in Part 2.
 > **📌 Why this matters**
 >
 > We aren't using a TileMap yet because placing decorations by hand keeps the
-> focus on movement. All that empty green is deliberate — Part 2 replaces it
+> focus on movement. All that empty green is deliberate, since Part 2 replaces it
 > with a real tile-based map.
 
 ### ✅ Checkpoint
@@ -355,11 +355,11 @@ Try:
 
 Adjust until it feels comfortable.
 
-Zoom `1` — the character is lost on screen:
+At zoom `1`, the character is lost on screen:
 
 ![Camera2D at zoom 1](docs/screenshots/07a_camera_zoom_before.png)
 
-Zoom `4` — cozy:
+At zoom `4`, cozy:
 
 ![Camera2D at zoom 4](docs/screenshots/07b_camera_zoom_after.png)
 
