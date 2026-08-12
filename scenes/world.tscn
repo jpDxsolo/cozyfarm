@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://d24rtdqf1mb0b" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Texture2D" uid="uid://blmv0y3voaews" path="res://art/Elements/Plants/spr_deco_tree_01_strip4.png" id="2_71j4m"]
 [ext_resource type="Texture2D" uid="uid://clkscinsqkv1h" path="res://art/Elements/Plants/spr_deco_mushroom_red_01_strip4.png" id="3_qfnet"]
+[ext_resource type="Texture2D" uid="uid://2ce6nd48fvn5" path="res://art/Elements/Crops/carrot_05.png" id="5_carrot"]
+[ext_resource type="Texture2D" uid="uid://emet3d6g7gkj" path="res://art/Elements/Crops/cauliflower_05.png" id="6_caulif"]
+[ext_resource type="Texture2D" uid="uid://cropjemv1gjwy" path="res://art/Elements/Crops/radish_05.png" id="7_radish"]
+[ext_resource type="Texture2D" uid="uid://b7vchsgvqirkl" path="res://art/Elements/Crops/beetroot_05.png" id="8_beetrt"]
+[ext_resource type="Texture2D" uid="uid://co8pb2fvp7ino" path="res://art/Elements/Crops/wheat_05.png" id="9_wheat"]
+[ext_resource type="Texture2D" uid="uid://jmodusqoestu" path="res://art/Elements/Crops/pumpkin_05.png" id="10_pumpkn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3hyu"]
 atlas = ExtResource("2_71j4m")
@@ -176,6 +182,38 @@ sprite_frames = SubResource("SpriteFrames_mnkty")
 autoplay = "default"
 
 [node name="Crops" type="Node2D" parent="." unique_id=1253559115]
+
+[node name="Carrot1" type="Sprite2D" parent="Crops"]
+position = Vector2(56, 4)
+texture = ExtResource("5_carrot")
+
+[node name="Cauliflower1" type="Sprite2D" parent="Crops"]
+position = Vector2(72, 4)
+texture = ExtResource("6_caulif")
+
+[node name="Radish1" type="Sprite2D" parent="Crops"]
+position = Vector2(88, 4)
+texture = ExtResource("7_radish")
+
+[node name="Beetroot1" type="Sprite2D" parent="Crops"]
+position = Vector2(104, 4)
+texture = ExtResource("8_beetrt")
+
+[node name="Wheat1" type="Sprite2D" parent="Crops"]
+position = Vector2(56, 20)
+texture = ExtResource("9_wheat")
+
+[node name="Pumpkin1" type="Sprite2D" parent="Crops"]
+position = Vector2(72, 20)
+texture = ExtResource("10_pumpkn")
+
+[node name="Carrot2" type="Sprite2D" parent="Crops"]
+position = Vector2(88, 20)
+texture = ExtResource("5_carrot")
+
+[node name="Radish2" type="Sprite2D" parent="Crops"]
+position = Vector2(104, 20)
+texture = ExtResource("7_radish")
 
 [node name="Player" parent="." unique_id=1060674621 instance=ExtResource("1_nnsk1")]
 position = Vector2(0, 1)

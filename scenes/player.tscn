@@ -289,14 +289,11 @@ script = ExtResource("1_qlg0r")
 [node name="BaseSprite" type="AnimatedSprite2D" parent="." unique_id=725222130]
 sprite_frames = SubResource("SpriteFrames_mnkty")
 animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.3037027
 
-[node name="HairSpite" type="AnimatedSprite2D" parent="." unique_id=1940449887]
+[node name="HairSprite" type="AnimatedSprite2D" parent="." unique_id=1940449887]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_eao12")
 animation = &"idle"
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98753074]
 position = Vector2(0.5, 6)

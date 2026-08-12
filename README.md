@@ -1,49 +1,106 @@
-# cozyfarm
+# Build a Cozy Farming Game in Godot 4
 
-A small top-down farming game built in **Godot 4.7** (GL Compatibility renderer).
+![cozyfarm](docs/screenshots/01_hero.png)
 
-## Current state
+A beginner-friendly, hands-on tutorial series that walks through
+building a cozy farming game in **Godot 4** from scratch.
 
-Very early. There's a world scene and a player `CharacterBody2D` with 8-way
-WASD/arrow movement and layered sprite animation (a base body sprite plus a
-separate hair sprite that stays in sync).
+Instead of jumping straight into advanced systems, each article
+introduces one new concept while gradually transforming a simple
+prototype into a complete game.
 
-- [scenes/player.gd](scenes/player.gd) — movement + animation state
-- [scenes/player.tscn](scenes/player.tscn) — player scene
-- [scenes/world.tscn](scenes/world.tscn) — main scene
+------------------------------------------------------------------------
 
-## Art assets are not included
+## What You'll Build
 
-This project uses the [Sunnyside World](https://danieldiggle.itch.io/sunnyside)
-asset pack by Daniel Diggle. That pack is commercially licensed and cannot be
-redistributed, so `art/` is gitignored and the scenes here will show missing
-resources on a fresh clone.
+By the end of the series you'll have:
 
-To run it, buy the pack and extract it into `art/` matching the layout the
-scenes expect:
+-   🌾 A tile-based farm
+-   🚶 A modular animated player
+-   🌳 Interactive trees, rocks, and crops
+-   🌱 Farming mechanics
+-   🎒 Inventory system
+-   👥 NPCs and dialogue
+-   🌙 Day/night cycle
+-   💾 Saving and loading
+-   ...and much more.
 
+------------------------------------------------------------------------
+
+## Project Setup
+
+### Engine
+
+-   **Godot 4.x**
+
+### Asset Pack
+
+This series uses **Sunnyside World** by Daniel Diggle.
+
+Download it here:
+
+https://danieldiggle.itch.io/sunnyside
+
+Huge thanks to Daniel Diggle for creating and sharing such a fantastic
+asset pack.
+
+Please review the asset pack's license before using it in your own
+projects.
+
+------------------------------------------------------------------------
+
+## Tutorial Roadmap
+
+-   ✅ Part 1 -- Character Movement & Your First Farm Scene
+-   ⬜ Part 2 -- Building Your First TileMap
+-   ⬜ Part 3 -- Interacting With the World
+-   ⬜ Part 4 -- Farming Mechanics
+-   ⬜ Part 5 -- Inventory System
+-   ⬜ Part 6 -- Day & Night
+-   ⬜ Part 7 -- NPCs & Dialogue
+-   ⬜ Part 8 -- Saving & Loading
+-   ⬜ Part 9 -- Polish & Expansion
+
+------------------------------------------------------------------------
+
+## Repository Structure
+
+``` text
+assets/
+docs/
+project/
 ```
-art/
-  Tileset/spr_tileset_sunnysideworld_16px.png
-  characters/Human/IDLE/...
-  characters/Human/WALKING/...
-  characters/Human/ATTACK/...
-  Elements/Other/...
-```
 
-Godot will regenerate the `.import` files on first open.
+As the series grows, each tutorial will have:
 
-## Running
+-   The completed project source
+-   The accompanying blog post
+-   Any supporting assets or downloads
 
-Open the project folder in Godot 4.7 and press F5.
+------------------------------------------------------------------------
 
-## Controls
+## Project Repository
 
-| Action | Keys |
-| --- | --- |
-| Move | `WASD` or arrow keys |
+GitHub: https://github.com/jpDxsolo/cozyfarm
+
+------------------------------------------------------------------------
+
+## Following Along
+
+Each tutorial starts with a **Project Setup** section that tells you:
+
+-   which version of Godot is being used
+-   which assets are required
+-   where to begin from in the series
+
+If you're starting from the beginning, simply work through the tutorials
+in order.
+
+------------------------------------------------------------------------
 
 ## License
 
-The code in this repository is MIT licensed (see [LICENSE](LICENSE)). The art
-assets are **not** covered by that license and are not distributed here.
+The tutorial code in this repository may be used freely.
+
+Please obtain the **Sunnyside World** asset pack from its official
+itch.io page and follow the license provided by the asset author.
